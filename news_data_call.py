@@ -9,7 +9,7 @@ import requests
 
 def retreive_api_data(site,url,pages):
     objects = []
-    for page in pages:
+    for page in range(1,pages+1):
         payload = {
             "language": "en",
             "site": site,

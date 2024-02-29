@@ -101,3 +101,60 @@ def scrape_cnn_articles():
         articles.append(article)
     return articles
 
+def scrape_fox_articles():
+    # URL
+    url = 'https://www.foxnews.com/'
+
+    # Send an HTTP GET request to the URL
+    response = requests.get(url)
+
+    # Parse the HTML content of the response using BeautifulSoup
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Find all links on the page
+    links = [link.get('href') for link in soup.find_all('a')]
+
+    # Filter URLs to those starting with '/2024'
+    filtered_urls = [url for url in links if url and url.startswith('https://www.foxnews.com/')]
+
+    articles = []
+
+    for link in filtered_urls:
+        
+        r = requests.get(link)
+        
+        soup = BeautifulSoup(r.text, 'html.parser')
+
+        # Extract date from the URL
+        #time
+        date = soup.find('time')
+        date = date.text.strip() if date else None
+
+        # Extract HTML content
+        html_content = r.content.decode('utf-8')
+
+        # Extract article body
+        body_pattern = r'"articleBody"\s*:\s*"([^"]+)"'
+        body_match = re.search(body_pattern, html_content)
+        body = body_match.group(1) if body_match else None
+
+        title = soup.find('title')
+        title = title.text.strip() if title else None
+        title
+
+        author_pattern = r'"name":([^"]+)"'
+        author_match = re.search(body_pattern, html_content)
+        author = body_match.group(1) if body_match else None
+
+        article = {
+            "URL": link,
+            "Date": date,
+            "Header": title,
+            "Author": author,
+            "Text": body
+        }
+
+        articles.append(article)
+
+    # Write the extracted data to a JSON file
+    return articles

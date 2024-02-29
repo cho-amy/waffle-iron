@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "msds697-waffleiron",
+  "private_key_id": "38160a8e511fa5d3d4990040c809fba42139f182",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCkrhbqG2oaXfMb\nUx6QGZf+XBA+plsxdeCHZ8uhYmfa2IgJ9Aew7Rs/3qsOQwNN1AmbfB8rlrlmM5jw\nAQl6B6uIhDpGFj8romN9Ot/CqkbFWu2ONyUW8WIcwnr2qbSzQKBb0ARKknW9aPE9\nV9bauYJfNk7sRIudo0opRlseE2ukkChjBcNh7sIHtRKbjE7gXYv/RZoQTBuG1V3/\nykx0sJskGtSARDL9M29ULZOgsKs+AyM6R5U7eh/54hg6m6jc7q9wodC6coVXuqoh\nRBxOtli0ocEE/3UanO9mBRyiD/LoOQUUewVxHFh+K9CPnwqDRWdMi+sJWEFUPNYj\nrHpuGRX1AgMBAAECggEAJm7/55LO3Ej9bizjtudWPxW+79Q099HmPUvW7TsReHSt\nKT+EFQF9aNZfrzQqHv2j4V8iSjLC4cycfrULQGjuWm3byNQz2YvscsNtChph6nj6\ndMS/ef+LcaFc/9jjFKu6UTs26S2N348QsEuiGAmQGQcMe91ShU+hBQmHxfjr2Cux\n11cMvbAp7qczxHQ4G35U6i2trXYQPrZw4O/lM/3553eyCOdQ0UdCpkRP5IGdhj5U\nVMZur7T3N12DnWUEOnyK+q+9vgcyOcMa23bgo0nctpEGQU7F7LjHJ3x/P+WdSGQa\n4EomTdCWisXmeB9Rbmfqs43QJ8TVYrY7vpexceBQyQKBgQDZN4JwLEgC0wsi05rh\n2xGr5bn1KbVyMFvsqp/Qz7/hdwjtXTVRIdsmc1V8tPTV/NaAFaosQ9GznVxPfEv7\nIyu/P5rI8JLX4bjaSmN9rrJz4ttSPlQu0W4PQz4+VAaA7LK2xi3l3t2x2hveA06e\nzPEe0BxW2H+2TEMLE4nJL+6xGQKBgQDCFT3jqiCVX8SuDBJ49HfXZ5XdWD0UldWP\nBKfDT4+ODjx4Q4Su+V2vAzbx8FUHPzGF9tAw//+1jUuReGKW8SlMq1B1MxBkJgB2\naDPqNjX63RGbVEP1zQO+66vSPkXQOs9YyhBw4q5zGdWwgtG/lTeZEnWvOFTvi7iG\n8xsY4w1bPQKBgQCTD4PeEfzG/L8jWwQXOUvjh2q40v4nSxpRRstggea07PQ8T8iT\nH0rR42/TOGgyoDVRDlniEiBdbIJcxhhi9NLfbl6LAGVKh2WxVH+7TZU/5Cz8p3oz\nIFNVPf9cD2M/0gDEwbO9V3/cs3/+dVq7JKFybQ9itLzyXPte+mFktnDxsQKBgQCw\npKSvkSgWzBM2VcZ6UAbDBoRf8O+mzLiScqo+GSuPH2XqD4mzt0KNB1/608KP1fQ8\n+WaDMnyJwRAGVotk1hnAriuMf+1rOSsymaSmhrCaoppjxU4VaYL/QYAg2oyv+Na+\n+Sn9lFMyb1EOVgKRXD4+E48I6zxiycgpCxqejAicAQKBgBknlfg/CB5DaPJPD/jk\npo6TdmE/NC0FL91XCIGEfJ3eF/Z+JZgNCnGn4Van3YK1Q86nLpDS/jX2IEWDLcq0\ne5YuhcdwDGXdKhW3GfOgHwNNEU0D7ONFTcnQuWIn30nsuUiTrOclQN3M5RQro2Nq\nteffaWN3FTcOKccdVfC3BxAG\n-----END PRIVATE KEY-----\n",
+  "client_email": "service-account@msds697-waffleiron.iam.gserviceaccount.com",
+  "client_id": "113717690929348486723",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service-account%40msds697-waffleiron.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -10,14 +10,24 @@ import json
 from bs4 import BeautifulSoup
 
 
+def preprocess(data):
+    findata = []
+    for page in data:
+        for news_item in page['news']:
+            if 'date' in news_item:
+                news_item['date'] = datetime.strptime(
+                    news_item['date'], '%a, %d %b %Y %H:%M:%S %Z').strftime('%Y-%m-%d')
+            findata.append(news_item)
+    return findata
 
-def retreive_api_data(site,url,pages):
+
+def retreive_api_data(site, url, pages):
     objects = []
-    for page in range(1,pages+1):
+    for page in range(1, pages+1):
         payload = {
             "language": "en",
             "site": site,
-            "page":page
+            "page": page
         }
         headers = {
             "content-type": "application/json",
@@ -27,29 +37,30 @@ def retreive_api_data(site,url,pages):
         response = requests.post(url, json=payload, headers=headers)
         # Check if the request was successful (status code 200)
         if response.status_code == 200:
-        # Parse and print the response *****
+            # Parse and print the response *****
             data = response.json()
         objects.append(data)
-            
 
     return objects
 
+
 def write_json_to_gcs(bucket_name, blob_name, service_account_key_file, data):
-    storage_client = storage.Client.from_service_account_json(service_account_key_file)
+    storage_client = storage.Client.from_service_account_json(
+        service_account_key_file)
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
     with blob.open("w") as f:
         json.dump(data, f)
-        
+
+
 def read_json_from_gcs(bucket_name, blob_name, service_account_key_file):
-    storage_client = storage.Client.from_service_account_json(service_account_key_file)
+    storage_client = storage.Client.from_service_account_json(
+        service_account_key_file)
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
     data_string = blob.download_as_text()
     data = json.loads(data_string)
     return data
-
-
 
 
 def scrape_cnn_articles():
@@ -66,12 +77,13 @@ def scrape_cnn_articles():
     links = [link.get('href') for link in soup.find_all('a')]
 
     # Filter URLs to those starting with '/2024'
-    filtered_urls = ["https://www.cnn.com" + url for url in links if url and url.startswith('/20')]
+    filtered_urls = ["https://www.cnn.com" +
+                     url for url in links if url and url.startswith('/20')]
 
     articles = []
 
     for link in filtered_urls:
-        
+
         r = requests.get(link)
 
         # Extract date from the URL
@@ -108,6 +120,7 @@ def scrape_cnn_articles():
         articles.append(article)
     return articles
 
+
 def scrape_fox_articles():
     # URL
     url = 'https://www.foxnews.com/'
@@ -122,18 +135,19 @@ def scrape_fox_articles():
     links = [link.get('href') for link in soup.find_all('a')]
 
     # Filter URLs to those starting with '/2024'
-    filtered_urls = [url for url in links if url and url.startswith('https://www.foxnews.com/')]
+    filtered_urls = [url for url in links if url and url.startswith(
+        'https://www.foxnews.com/')]
 
     articles = []
 
     for link in filtered_urls:
-        
+
         r = requests.get(link)
-        
+
         soup = BeautifulSoup(r.text, 'html.parser')
 
         # Extract date from the URL
-        #time
+        # time
         date = soup.find('time')
         date = date.text.strip() if date else None
 

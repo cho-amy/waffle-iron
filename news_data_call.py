@@ -34,7 +34,7 @@ def retreive_api_data(site,url,pages):
 
     return objects
 
-def wrtie_json_to_gcs(bucket_name, blob_name, service_account_key_file, data):
+def write_json_to_gcs(bucket_name, blob_name, service_account_key_file, data):
     storage_client = storage.Client.from_service_account_json(service_account_key_file)
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(blob_name)

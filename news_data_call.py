@@ -41,6 +41,13 @@ def write_json_to_gcs(bucket_name, blob_name, service_account_key_file, data):
     with blob.open("w") as f:
         json.dump(data, f)
         
+def read_json_from_gcs(bucket_name, blob_name, service_account_key_file):
+    storage_client = storage.Client.from_service_account_json(service_account_key_file)
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(blob_name)
+    data_string = blob.download_as_text()
+    data = json.loads(data_string)
+    return data
 
 
 

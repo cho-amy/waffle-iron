@@ -14,7 +14,7 @@ def load_data():
     for url in news.keys():
         data = retreive_api_data(url, api, pages)
         data = preprocess(data)
-        blob = f"{today}/{news[url]}.json"
+        blob = f"{today}_{news[url]}.json"
         write_json_to_gcs(bucket_name, blob, service_account_key_file, data)
 
 

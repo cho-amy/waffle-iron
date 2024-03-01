@@ -17,13 +17,13 @@ from user_definition import *
 
 
 
-def retreive_news_data(service_account_key_file,bucket_name,blob_name):
+def read_json_from_gcs(bucket_name, blob_name, service_account_key_file):
     storage_client = storage.Client.from_service_account_json(service_account_key_file)
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(blob_name)
-    json_str = blob.download_as_string().decode("utf8")
-    json_data = json.loads(json_str)
-    return json_data
+    data_string = blob.download_as_text()
+    data = json.loads(data_string)
+    return data
 
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi

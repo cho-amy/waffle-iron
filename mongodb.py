@@ -2,7 +2,7 @@ import pymongo
 
 
 class MongoDBCollection:
-    def __init_(self,
+    def __init__(self,
                 username,
                 password,
                 ip_address,

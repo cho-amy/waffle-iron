@@ -5,11 +5,8 @@ today = date.today()
 
 bucket_name = "waffleiron"
 pages = 3
-<<<<<<< HEAD
 service_account_key_file = os.path.join(os.environ['HOME'], 'airflow/dags/msds697-waffleiron-38160a8e511f.json')
-=======
 service_account_key_file = os.path.join(os.environ['HOME'], '.ssh/msds697-waffleiron-38160a8e511f.json')
->>>>>>> f03c22f583427979b2907a89eabb13ed2d7cc464
 
 
 api = "https://newsnow.p.rapidapi.com/newsv2_top_news_site"

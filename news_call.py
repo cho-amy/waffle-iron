@@ -9,14 +9,14 @@ from user_definition import *
 from news_data_call import *
 
 def load_data():
-    for url in news.keys:
+    for url in news.keys():
         data = retreive_api_data(url,api,pages)
-        blob = f"{today}/{news[url]}/waffles.json"
+        blob = f"{today}/{news[url]}.json"
         write_json_to_gcs(bucket_name,blob,service_account_key_file,data)
 
 with DAG(
-    dag_id="msds697-task2",
-    schedule= "@daly",
+    dag_id="waffle",
+    schedule= "@daily",
     start_date=datetime(2024, 2, 28),
     catchup=False
 ) as dag:

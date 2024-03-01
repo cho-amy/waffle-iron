@@ -4,8 +4,9 @@ import os
 today = date.today()
 
 bucket_name = "waffleiron"
+pages = 3
+service_account_key_file = os.path.join(os.environ['HOME'], 'airflow/dags/msds697-waffleiron-38160a8e511f.json')
 
-service_account_key_file = "msds697-waffleiron-38160a8e511f.json"
 
 api = "https://newsnow.p.rapidapi.com/newsv2_top_news_site"
 

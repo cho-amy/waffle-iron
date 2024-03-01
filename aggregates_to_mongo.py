@@ -6,7 +6,6 @@ from google.cloud import storage
 from user_definition import *
 
 from news_data_call import *
-from user_definition import *
 
 
 def retreive_news_data(service_account_key_file, bucket_name, blob_name):
@@ -21,7 +20,7 @@ def retreive_news_data(service_account_key_file, bucket_name, blob_name):
     json_data = json.loads(json_str)
     return json_data
 
-def gcs_to_mongob():
+def gcs_to_mongob(blob_name):
 
 
     uri = "mongodb+srv://waffleiron:zNkFSHTfTGroBXRq@waffleironcluster.7uzj7t2.mongodb.net/?retryWrites=true&w=majority&appName=WaffleIronCluster"
@@ -34,10 +33,11 @@ def gcs_to_mongob():
     print("Pinged your deployment. You successfully connected to MongoDB!")
     
     # Retrieve news data from Google Cloud Storage
-    news_data = retreive_news_data(service_account_key_file, bucket_name, "waffle.json")
+    news_data = retreive_news_data(service_account_key_file, bucket_name, blob_name)
     
-    db = client['cnn']
-    collection = db['news']
+    db = client['2024-03-01_cnn']
+    collection = db[blob_name]
     collection.insert_many(news_data)
     
     print("News data inserted into MongoDB!")
+ # gcs_to_mongob("2024-03-01_cnn.json")

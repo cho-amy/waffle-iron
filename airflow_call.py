@@ -18,6 +18,13 @@ def load_data():
         write_json_to_gcs(bucket_name, blob, service_account_key_file, data)
 
 
+def load_data2():
+    for url in news.keys():
+        data = retreive_api_data(url, api, pages)
+        data = preprocess(data)
+        blob = f"{today}_{news[url]}.json"
+        gcs_to_mongob(blob)
+
 with DAG(
     dag_id="waffle",
     schedule="@daily",
@@ -27,5 +34,8 @@ with DAG(
     API = PythonOperator(task_id="APi_call",
                          python_callable=load_data,
                          dag=dag)
+    API2 = PythonOperator(task_id="APi_call",
+                         python_callable=load_data2,
+                         dag=dag)
 
-    API
+    API >> API2

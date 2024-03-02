@@ -36,4 +36,9 @@ with DAG(
                          python_callable=to_mongo,
                          dag=dag)
     API
+<<<<<<< HEAD
     API >> mongo
+=======
+    API >> mongo
+    
+>>>>>>> e50dad6b665a5ef40fe8bc91c53fce911412d1e0

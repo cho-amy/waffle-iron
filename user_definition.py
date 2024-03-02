@@ -6,10 +6,11 @@ today = date.today()
 bucket_name = "waffleiron"
 pages = 3
 service_account_key_file = os.path.join(os.environ['HOME'], 'airflow/dags/msds697-waffleiron-38160a8e511f.json')
-service_account_key_file = os.path.join(os.environ['HOME'], '.ssh/msds697-waffleiron-38160a8e511f.json')
+#service_account_key_file = os.path.join(os.environ['HOME'], '.ssh/msds697-waffleiron-38160a8e511f.json')
 
 
 api = "https://newsnow.p.rapidapi.com/newsv2_top_news_site"
+uri = "mongodb+srv://waffleiron:zNkFSHTfTGroBXRq@waffleironcluster.7uzj7t2.mongodb.net/?retryWrites=true&w=majority&appName=WaffleIronCluster"
 
 rapidapi_key = "65aeb55cc4msh0c34dd7544eb736p12dae3jsn39fcdba3cd57"
 rapidapi_host = "newsnow.p.rapidapi.com"

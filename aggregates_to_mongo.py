@@ -17,24 +17,13 @@ def read_json_from_gcs(bucket_name, blob_name, service_account_key_file):
     return data
 
 
-def gcs_to_mongob(uri, data, sourcename):
-
-
-    uri = "mongodb+srv://waffleiron:zNkFSHTfTGroBXRq@waffleironcluster.7uzj7t2.mongodb.net/?retryWrites=true&w=majority&appName=WaffleIronCluster"
+def gcs_to_mongob(uri,data,sources_name):
 
 
     client = MongoClient(uri, server_api=ServerApi('1'))
 
-
     client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-    
     # Retrieve news data from Google Cloud Storage
-
-    news_data = read_json_from_gcs(bucket_name, data, service_account_key_file)
-    
-    db = client[sourcename]
-    collection = db['news']
-    collection.insert_many(news_data)
-    
-    print("News data inserted into MongoDB!")
+    db = client['news']
+    collection = db[sources_name]
+    collection.insert_many(data)

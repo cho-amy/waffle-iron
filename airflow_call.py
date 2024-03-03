@@ -11,7 +11,7 @@ from pyspark.sql.types import *
 
 import csv
 import pandas as pd
-
+from ml_pip import *
 from user_definition import *
 from news_data_call import *
 from datetime import datetime
@@ -29,9 +29,20 @@ def to_mongo():
         source_name = news[url]  ###cnn or fox 
         blob = f"{today}_{news[url]}.json"
         news_data = read_json_from_gcs(bucket_name, blob, service_account_key_file)
-        collection = gcs_to_mongob(uri,news_data,source_name)
-        spark_dataframe = mongod_to_spark(data, sources_name)
+        gcs_to_mongob(uri,news_data,source_name)
+
+
+def data_parse_from_mongo():
+    for url in news.keys():
+        source_name = news[url]  ###cnn or fox 
+        data = data_from_mongob(uri,source_name)
+        mongod_to_spark(data,source_name)
         
+        
+        
+        
+
+
 with DAG(
     dag_id="waffle",
     schedule="@daily",

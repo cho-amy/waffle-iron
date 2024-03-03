@@ -44,7 +44,7 @@ def mongod_to_spark(data, sources_name):
 
 
 
-    dfs = pd.read_csv(f"{sources_name}.csv")
+    dfs = pd.read_csv(f"ml_data/{sources_name}.csv")
     dfs = dfs.drop(columns=["videos", "images"])
     dfs["publisher"] = dfs["publisher"].apply(lambda x: eval(x)['title'])
     

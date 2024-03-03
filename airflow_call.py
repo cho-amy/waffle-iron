@@ -52,9 +52,12 @@ with DAG(
     API = PythonOperator(task_id="APi_call",
                          python_callable=load_data,
                          dag=dag)
-    mongo = PythonOperator(task_id="to_mongo",
+    mongo = PythonOperator(task_id="upload data to mongo",
                          python_callable=to_mongo,
                          dag=dag)
+    ML_data = PythonOperator(task_id="parse data for ml",
+                         python_callable=data_parse_from_mongo,
+                         dag=dag)
     API
-    API >> mongo
+    API >> mongo >> ML_data
 

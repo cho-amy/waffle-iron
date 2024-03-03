@@ -19,7 +19,7 @@ news = {
     "https://www.cnn.com/politics": "cnn",
     "https://www.foxnews.com/politics": "foxnews",
     "https://www.bbc.com/news/politics": "bbc",
-    "https://www.usatoday.com/news/politics/": "usatoday",
+    # "https://www.usatoday.com/news/politics/": "usatoday", ## not work for usatoday
     "https://www.washingtonpost.com/politics/":"washingtonpost",
     "https://www.wsj.com/politics" : "wsj",
     "https://www.nytimes.com/section/politics" :"nytimes",

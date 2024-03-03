@@ -24,11 +24,15 @@ def load_data():
         blob = f"{today}_{news[url]}.json"
         write_json_to_gcs(bucket_name, blob, service_account_key_file, data)
 
-def to_mongo():
+def to_mongo(): ### parse data would fail if data file is empty in 
     for url in news.keys():
         source_name = news[url]  ###cnn or fox 
         blob = f"{today}_{news[url]}.json"
         news_data = read_json_from_gcs(bucket_name, blob, service_account_key_file)
+        ### parse data would fail if data file is empty, insert check point here
+        if not news_data or news_data == {}:
+            print(f"Data for {blob} is empty, skipping...")
+            continue  # Skip the rest of the loop and move to the next item
         gcs_to_mongob(uri,news_data,source_name)
 
 

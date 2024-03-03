@@ -12,6 +12,8 @@ import pandas as pd
 
 
 
+
+
 def mongod_to_spark(data, sources_name):
     data = list(data.find({}))
 
@@ -19,7 +21,7 @@ def mongod_to_spark(data, sources_name):
     spark = SparkSession.builder \
         .appName("MongoDB to DataFrame") \
         .getOrCreate()
-    csv_file = f"ml_data/{sources_name}.csv"
+    csv_file = os.path.join(os.environ['HOME'], f"airflow/dags/ml_data/{sources_name}.csv")
     headers = data[0].keys()
     with open(csv_file, 'w', newline='', encoding='utf-8') as file:
         writer = csv.DictWriter(file, fieldnames=headers)
@@ -33,10 +35,8 @@ def mongod_to_spark(data, sources_name):
 
 
 
-
-
 def create_df(sources_name):
-    dfs = pd.read_csv(f"ml_data/{sources_name}.csv")
+    dfs = pd.read_csv(os.path.join(os.environ['HOME'], f"airflow/dags/ml_data/{sources_name}.csv"))
     dfs = dfs.drop(columns=["videos", "images"])
     dfs["publisher"] = dfs["publisher"].apply(lambda x: eval(x)['title'])
     
@@ -54,4 +54,4 @@ def create_df(sources_name):
 
     df = spark.createDataFrame(dfs, schema=schema)
     # df.show()
-    return df    
+    return df   

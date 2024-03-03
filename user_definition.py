@@ -4,7 +4,7 @@ import os
 today = date.today()
 
 bucket_name = "waffleiron"
-pages = 3
+pages = 10
 service_account_key_file = os.path.join(os.environ['HOME'], 'airflow/dags/msds697-waffleiron-38160a8e511f.json')
 #service_account_key_file = os.path.join(os.environ['HOME'], '.ssh/msds697-waffleiron-38160a8e511f.json')
 
@@ -17,5 +17,12 @@ rapidapi_host = "newsnow.p.rapidapi.com"
 
 news = {
     "https://www.cnn.com/politics": "cnn",
-    "https://www.foxnews.com/politics": "foxnews"
+    "https://www.foxnews.com/politics": "foxnews",
+    "https://www.bbc.com/news/politics": "bbc",
+    "https://www.usatoday.com/news/politics/": "usatoday",
+    "https://www.washingtonpost.com/politics/":"washingtonpost",
+    "https://www.wsj.com/politics" : "wsj",
+    "https://www.nytimes.com/section/politics" :"nytimes",
+    "https://www.theguardian.com/politics" : "theguardian",
+    "https://www.cbc.ca/news/politics": "cbc"
 }

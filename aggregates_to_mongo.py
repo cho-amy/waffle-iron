@@ -37,3 +37,60 @@ def data_from_mongob(uri,sources_name):
     db = client['news']
     collection = db[sources_name]
     return collection
+
+from pymongo import MongoClient
+from pymongo.errors import PyMongoError
+
+def deduplicate_and_aggregate(uri, collection_name):
+
+    client = MongoClient(uri, server_api=ServerApi('1'))
+    db = client['news']
+    collection = db[collection_name]
+    
+    # Define the aggregation pipeline
+    pipeline = [
+        {
+            "$group": {
+                "_id": "$url",
+                "uniqueDoc": {"$first": "$$ROOT"}
+            }
+        },
+        {
+            "$replaceRoot": {"newRoot": "$uniqueDoc"}
+        },
+        {
+            "$addFields": {
+                "convertedDate": {"$toDate": "$date"}
+            }
+        },
+        {
+            "$group": {
+                "_id": {
+                    "$dateToString": {"format": "%Y-%m-%d", "date": "$convertedDate"}
+                },
+                "count": {"$sum": 1},
+                "articles": {"$push": "$$ROOT"}
+            }
+        },
+        {
+            "$merge": {
+                "into": f"{collection_name}-date",
+                "whenMatched": "replace",
+                "whenNotMatched": "insert"
+            }
+        }
+    ]
+    
+    try:
+        # Execute the aggregation pipeline
+        result = collection.aggregate(pipeline)
+        # Since aggregate() is lazy, using a loop or similar method to initiate execution might be necessary
+        # For example, converting it to a list (if the result set is not too large) or iterating over it
+        for _ in result:
+            pass
+        print("Aggregation pipeline executed successfully.")
+    except PyMongoError as e:
+        print(f"An error occurred: {e}")
+
+# Example usage
+# deduplicate_and_aggregate('your_collection_name')

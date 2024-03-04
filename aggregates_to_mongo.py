@@ -1,5 +1,6 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from pymongo.errors import PyMongoError
 import json
 from google.cloud import storage
 from news_data_call import *
@@ -38,14 +39,13 @@ def data_from_mongob(uri,sources_name):
     collection = db[sources_name]
     return collection
 
-from pymongo import MongoClient
-from pymongo.errors import PyMongoError
 
-def deduplicate_and_aggregate(uri, collection_name):
+
+def deduplicate_and_aggregate(uri,sources_name):
 
     client = MongoClient(uri, server_api=ServerApi('1'))
     db = client['news']
-    collection = db[collection_name]
+    collection = db[sources_name]
     
     # Define the aggregation pipeline
     pipeline = [
@@ -74,7 +74,7 @@ def deduplicate_and_aggregate(uri, collection_name):
         },
         {
             "$merge": {
-                "into": f"{collection_name}-date",
+                "into": f"{sources_name}-date",
                 "whenMatched": "replace",
                 "whenNotMatched": "insert"
             }
@@ -89,8 +89,8 @@ def deduplicate_and_aggregate(uri, collection_name):
         for _ in result:
             pass
         print("Aggregation pipeline executed successfully.")
+        return result
     except PyMongoError as e:
         print(f"An error occurred: {e}")
 
-# Example usage
-# deduplicate_and_aggregate('your_collection_name')
+    

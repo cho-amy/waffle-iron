@@ -72,7 +72,7 @@ def data_from_mongob(uri,sources_name):
 
 
 
-def deduplicate_and_aggregate(uri,sources_name):
+def deduplicate_and_aggregate(uri, sources_name):
     """
     Deduplicates data within a MongoDB collection and aggregates it by date.
 
@@ -104,6 +104,13 @@ def deduplicate_and_aggregate(uri,sources_name):
         },
         {
             "$replaceRoot": {"newRoot": "$uniqueDoc"}
+        },
+        {
+            "$project": {
+                "video": 0,  # Exclude the 'video' field
+                "image": 0,  # Exclude the 'image' field
+                "publisher": 0  # Exclude the 'publisher' field
+            }
         },
         {
             "$addFields": {

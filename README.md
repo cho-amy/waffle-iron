@@ -3,7 +3,7 @@
 - Freeman Chen 
 - Abhi Erra
 - Amy Cho
-- Karthick Ayyalasomayajula
+- Karthik Ayyalasomayajula
 - Ronel Solomon
 ---
 ## Intro:

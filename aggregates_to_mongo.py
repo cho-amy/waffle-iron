@@ -92,5 +92,6 @@ def deduplicate_and_aggregate(uri,sources_name):
         return result
     except PyMongoError as e:
         print(f"An error occurred: {e}")
+        return result
 
     

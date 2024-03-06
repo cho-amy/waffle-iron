@@ -107,8 +107,8 @@ def deduplicate_and_aggregate(uri, sources_name):
         },
         {
             "$project": {
-                "video": 0,  # Exclude the 'video' field
-                "image": 0,  # Exclude the 'image' field
+                "videos": 0,  # Exclude the 'video' field
+                "images": 0,  # Exclude the 'image' field
                 "publisher": 0  # Exclude the 'publisher' field
             }
         },

@@ -33,22 +33,10 @@ https://github.com/cho-amy/waffle-iron
 
 #### Configuration and Execution
 Refer to the individual guides within the repository for configuring and executing each component of the pipeline:
-- API calling
-- Data Cleaning and Storage
-- Data Manipulation:
-- Mongo DB Atlas Integration
-- Pipeline Automation
-
-Project Structure:
-
-- api_calling: Contains scripts for calling external APIs to gather data.
-
-- data_cleaning: Scripts and notebooks for cleaning and preprocessing raw text data.
-
-- data_storage: Documentation and configuration files for storing data in MongoDB Atlas.
-
-- data_manipulation: Code for manipulating and analyzing text data, including feature extraction and model training.
-
-- pipeline_automation: Configuration files and scripts for automating the pipeline using Apache Airflow.
+- API calling: Contains scripts for calling external APIs to gather data
+- Data Cleaning and Storage: Scripts and notebooks for cleaning and preprocessing raw text data.
+- Data Manipulation: Documentation and configuration files for storing data in MongoDB Atlas.
+- Mongo DB Atlas Integration: Code for manipulating and analyzing text data, including feature extraction and model training.
+- Pipeline Automation: Configuration files and scripts for automating the pipeline using Apache Airflow.
 
 #### Usage:

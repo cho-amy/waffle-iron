@@ -15,21 +15,20 @@ def mongod_to_spark(data, sources_name):
     data = list(data.find({}))
 
     # Create a Spark session
-    spark = SparkSession.builder.appName("MongoDB to DataFrame").getOrCreate()
-    csv_file = os.path.join(
-        os.environ["HOME"], f"airflow/dags/ml_data/{sources_name}.csv"
-    )
+    spark = SparkSession.builder \
+        .appName("MongoDB to DataFrame") \
+        .getOrCreate()
+    csv_file = os.path.join(os.environ['HOME'], f"airflow/dags/ml_data/{sources_name}.csv")
     headers = data[0].keys()
-    with open(csv_file, "w", newline="", encoding="utf-8") as file:
+    with open(csv_file, 'w', newline='', encoding='utf-8') as file:
         writer = csv.DictWriter(file, fieldnames=headers)
-
-        # Write column headers
+    
+    # Write column headers
         writer.writeheader()
-
-        # Write data rows
+    
+    # Write data rows
         for row in data:
             writer.writerow(row)
-
 
 def create_df(sources_name):
     dfs = pd.read_csv(

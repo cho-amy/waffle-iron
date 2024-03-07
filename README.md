@@ -32,11 +32,10 @@ https://github.com/cho-amy/waffle-iron
 ```
 
 #### Configuration and Execution
-Refer to the individual guides within the repository for configuring and executing each component of the pipeline:
-- API calling: Contains scripts for calling external APIs to gather data. check the [Api to gcs](ml_pipline/API_gcs.py) python file for more detailes 
-- Data Cleaning and Storage: Scripts and notebooks for cleaning and preprocessing raw text data.
-- Data Manipulation: Documentation and configuration files for storing data in MongoDB Atlas.
-- Mongo DB Atlas Integration: Code for manipulating and analyzing text data, including feature extraction and model training.
-- Pipeline Automation: Configuration files and scripts for automating the pipeline using Apache Airflow.
+Refer to the individual guides within the repository for configuring and executing each component of the [pipeline](ml_pipline):
+
+- [API_gcs.py](ml_pipline/airflow_call.py): Contains scripts for calling external APIs to gather data. Scripts and notebooks for cleaning and preprocessing raw text data.
+- [aggregates_to_mongo.py]([text](ml_pipline/aggregates_to_mongo.py)): Documentation and configuration files for storing data in MongoDB Atlas.Manipulating and analyzing text data, including feature extraction and model training.
+- [airflow_call.py](airflow_call.py): Configuration files and scripts for automating the pipeline using Apache Airflow.
 
 #### Usage:

@@ -4,8 +4,8 @@ import json
 from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 from google.cloud import storage
-from news_data_call import *
-from user_definition import *
+from ml_pipline.API_gcs import *
+from ml_pipline.user_definition import *
 from datetime import datetime
 import csv
 import pandas as pd

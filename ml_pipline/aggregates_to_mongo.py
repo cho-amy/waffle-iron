@@ -3,8 +3,8 @@ from pymongo.server_api import ServerApi
 from pymongo.errors import PyMongoError
 import json
 from google.cloud import storage
-from news_data_call import *
-from user_definition import *
+from ml_pipline.API_gcs import *
+from ml_pipline.user_definition import *
 from datetime import datetime
 
 

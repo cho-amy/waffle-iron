@@ -11,11 +11,11 @@ from pyspark.sql.types import *
 
 import csv
 import pandas as pd
-from ml_pip import *
-from user_definition import *
-from news_data_call import *
+from ml_pipline.ml_pip import *
+from ml_pipline.user_definition import *
+from ml_pipline.API_gcs import *
 from datetime import datetime
-from aggregates_to_mongo import *
+from ml_pipline.aggregates_to_mongo import *
 
 # Stage 1 Function:  load data from news APIs, preprocess it, and write it to Google Cloud Storage
 def load_data():

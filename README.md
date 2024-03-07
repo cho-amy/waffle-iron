@@ -33,7 +33,7 @@ https://github.com/cho-amy/waffle-iron
 
 #### Configuration and Execution
 Refer to the individual guides within the repository for configuring and executing each component of the pipeline:
-- API calling: Contains scripts for calling external APIs to gather data
+- API calling: Contains scripts for calling external APIs to gather data. check the [Api to gcs](ml_pipline/API_gcs.py) python file for more detailes 
 - Data Cleaning and Storage: Scripts and notebooks for cleaning and preprocessing raw text data.
 - Data Manipulation: Documentation and configuration files for storing data in MongoDB Atlas.
 - Mongo DB Atlas Integration: Code for manipulating and analyzing text data, including feature extraction and model training.

@@ -8,7 +8,7 @@
 ---
 ## Intro:
 **"Ever clicked on a headline so compelling that you just couldn't resist, only to find out the story was about as exciting as watching paint dry? 🎨 Welcome to the world of clickbait, the internet's version of 'bait and switch.' 🎣 But what if we told you there's a way to sift through the sensational to find the substantial? 🕵️‍♂️ Enter our project: a large language model (LLM) processing pipeline that doesn't just read between the lines—it reads between the clicks. 👀**
-![alt text](image.png)
+![alt text](/Images/image.png)
 ---
 ### Project Description
 

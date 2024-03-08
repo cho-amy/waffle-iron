@@ -12,20 +12,20 @@
 ---
 ### Project Description
 
-This repository contains all necessary code, documentation, and resources used in our research for building and automating a large language model processing pipeline. It is designed to serve as a practical framework for analyzing text data at scale, specifically targeting the identification and comparison of clickbait content in political news.
+This repository contains all necessary code, documentation, and resources used in our research for building and automating a large language model processing pipeline. It is designed to serve as a practical framework for analyzing text data at scale, specifically targeting the identification and comparison of clickbait content in news articles.
 
 ---
 
 ### Getting Started
 
-#### Dependences 
+#### Dependencies 
 - Python 3.8
 - Apache Spark
 - MongoDB Atlas
 - Apache Airflow
 - Google Cloud Services (GCS)
 
-#### installation
+#### Installation
 Clone the repository to your local machine
 ```
 https://github.com/cho-amy/waffle-iron
@@ -39,7 +39,7 @@ Refer to the individual guides within the repository for configuring and executi
 - [airflow_call.py](ml_pipline/airflow_call.py): Configuration files and scripts for automating the pipeline using Apache Airflow.
 
 #### ML images :
+Similarity Scores:
 ![alt text](/Images/overallavgsimilarity.png)
-
 ![alt text](/Images/top5similarity.png)
 

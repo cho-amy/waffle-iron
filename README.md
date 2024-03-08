@@ -39,3 +39,7 @@ Refer to the individual guides within the repository for configuring and executi
 - [airflow_call.py](ml_pipline/airflow_call.py): Configuration files and scripts for automating the pipeline using Apache Airflow.
 
 #### ML images :
+![alt text](/Images/overallavgsimilarity.png)
+
+![alt text](/Images/top5similarity.png)
+

@@ -10,7 +10,7 @@ service_account_key_file = os.path.join(os.environ['HOME'], 'airflow/dags/msds69
 
 
 api = "https://newsnow.p.rapidapi.com/newsv2_top_news_site"
-uri = "mongodb+srv://waffleiron:zNkFSHTfTGroBXRq@waffleironcluster.7uzj7t2.mongodb.net/?retryWrites=true&w=majority&appName=WaffleIronCluster"
+uri = "mongodb+srv://waffleiron:<password>@waffleironcluster.7uzj7t2.mongodb.net/?retryWrites=true&w=majority&appName=WaffleIronCluster" #MongoDB Atlas cluster, erased for privacy
 
 rapidapi_key = "65aeb55cc4msh0c34dd7544eb736p12dae3jsn39fcdba3cd57"
 rapidapi_host = "newsnow.p.rapidapi.com"
